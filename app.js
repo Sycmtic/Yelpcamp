@@ -16,9 +16,14 @@ var commentRoutes       = require("./routes/comments"),
     indexRoutes         = require("./routes/index"),
     campgroundRoutes    = require("./routes/campgrounds");
 
+// ==============
+// Database CONFI
+// ==============
+// set the backup if environment variable got screwed up
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v12";
 // set up default mongoose connection to a certain mongodb database
 // use environment variable to automatically change the local/online database for us
-mongoose.connect(process.env.DATABASEURL);
+mongoose.connect(url);
 // mongoose.connect("mongodb://localhost/yelp_camp_v12", {useMongoClient: true});
 // mongoose.connect("mongodb://sycmtic:4991127031@ds117868.mlab.com:17868/yelpcampapp");
 

@@ -21,9 +21,10 @@ var commentRoutes       = require("./routes/comments"),
 // ==============
 // set the backup if environment variable got screwed up
 var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v12";
-// set up default mongoose connection to a certain mongodb database
+
 // use environment variable to automatically change the local/online database for us
 mongoose.connect(url);
+// set up default mongoose connection to a certain mongodb database
 // mongoose.connect("mongodb://localhost/yelp_camp_v12", {useMongoClient: true});
 // mongoose.connect("mongodb://sycmtic:4991127031@ds117868.mlab.com:17868/yelpcampapp");
 

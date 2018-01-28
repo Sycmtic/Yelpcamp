@@ -17,7 +17,9 @@ var commentRoutes       = require("./routes/comments"),
     campgroundRoutes    = require("./routes/campgrounds");
 
 // set up default mongoose connection to a certain mongodb database
-mongoose.connect("mongodb://localhost/yelp_camp_v12", {useMongoClient: true});
+// mongoose.connect("mongodb://localhost/yelp_camp_v12", {useMongoClient: true});
+mongoose.connect("mongodb://sycmtic:4991127031@ds117868.mlab.com:17868/yelpcampapp");
+
 // set the default file type as ejs
 app.set("view engine", "ejs");
 // tell express to use body-parser

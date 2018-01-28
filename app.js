@@ -17,8 +17,11 @@ var commentRoutes       = require("./routes/comments"),
     campgroundRoutes    = require("./routes/campgrounds");
 
 // set up default mongoose connection to a certain mongodb database
+// use environment variable to automatically change the local/online database for us
+mongoose.connect(process.env.DATABASEURL);
 // mongoose.connect("mongodb://localhost/yelp_camp_v12", {useMongoClient: true});
-mongoose.connect("mongodb://sycmtic:4991127031@ds117868.mlab.com:17868/yelpcampapp");
+// mongoose.connect("mongodb://sycmtic:4991127031@ds117868.mlab.com:17868/yelpcampapp");
+
 
 // set the default file type as ejs
 app.set("view engine", "ejs");
@@ -59,7 +62,7 @@ app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-
+// process.env reflect the environment when this code run
 app.listen(process.env.PORT, process.env.IP, function() {
     console.log("Yelp app has started!");
 });
